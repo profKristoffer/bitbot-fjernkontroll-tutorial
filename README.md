@@ -3,7 +3,7 @@
 
 ## Tutorial
 
-* [Tutorial](/Tutorial)
+* [Tutorial](/bitbot-fjernkontroll-tutorial/Tutorial)
 
 ## Rediger dette prosjektet ![Bygg statusmerke](https://github.com/profkristoffer/bitbot-fjernkontroll-tutorial/workflows/MakeCode/badge.svg)
 
