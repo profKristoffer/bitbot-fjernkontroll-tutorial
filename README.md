@@ -1,14 +1,9 @@
 
 > Åpne denne siden på [https://profkristoffer.github.io/bitbot-fjernkontroll-tutorial/](https://profkristoffer.github.io/bitbot-fjernkontroll-tutorial/)
 
-## Bruk som utvidelse
+## Tutorial
 
-Dette kodeområdet kan bli lagt til som en **utvidelse** i MakeCode.
-
-* åpne [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* klikk på **Nytt prosjekt**
-* klikk på **Utvidelser** i menyen under tannhjulet
-* søk etter **https://github.com/profkristoffer/bitbot-fjernkontroll-tutorial** og importér
+* [Tutorial](/Tutorial)
 
 ## Rediger dette prosjektet ![Bygg statusmerke](https://github.com/profkristoffer/bitbot-fjernkontroll-tutorial/workflows/MakeCode/badge.svg)
 
