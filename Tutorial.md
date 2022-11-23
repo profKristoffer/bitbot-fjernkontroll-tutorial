@@ -7,9 +7,8 @@ Vi skal nå lage en fjernkontroll for å styre vår Bitbot basert på helningsvi
 ## Step 2
 
 ```blocks
-console.log(":)")
-// @highlight
-console.log(":(")
+basic.showString(":)")
+basic.showString(":(")
 ```
 
     
