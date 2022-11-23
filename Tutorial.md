@@ -7,7 +7,7 @@ Fjernkontrollen vår skal sende data fra akselerometeret til vår mottaker, den 
 
 ## Steg 1
 
-I ``|basic.ved start|`` velger vi en radiogruppe og lager tre variabler, ``||variables:Gass||``, ``||variables:Sving||`` og ``||variables:Kjør||``. Sett ``||variables:Gass||`` og ``||variables:Sving||`` til 0 og sett ``||variables:Kjør||`` til ``||Logic:False||``
+I ``|basic:ved start|`` velger vi en radiogruppe og lager tre variabler, ``||variables:Gass||``, ``||variables:Sving||`` og ``||variables:Kjør||``. Sett ``||variables:Gass||`` og ``||variables:Sving||`` til 0 og sett ``||variables:Kjør||`` til ``||Logic:False||``
 
 
 ```blocks
@@ -19,9 +19,10 @@ Kjør= false;
 
 
 
-
+<!---
 ```blocks
 
 ```
 ``||||``
+--->
 <script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
