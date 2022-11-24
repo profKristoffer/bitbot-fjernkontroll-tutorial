@@ -7,19 +7,20 @@ Fjernkontrollen vår skal sende data fra akselerometeret til vår mottaker, den 
 
 ## Steg 1
 
-I ``|basic:ved start|`` velger vi en radiogruppe og lager tre variabler, ``||variables:Gass||``, ``||variables:Sving||`` og ``||variables:Kjør||``. Sett ``||variables:Gass||`` og ``||variables:Sving||`` til 0 og sett ``||variables:Kjør||`` til ``||Logic:False||``
+I ``|basic:ved start|`` velger vi en radiogruppe og lager tre variabler, ``||variables:Gass||``, ``||variables:Sving||`` og ``||variables:Kjør||``. Sett ``||variables:Gass||`` og ``||variables:Sving||`` til 0 og sett ``||variables:Kjør||`` til -1.
+Vi kommer til å bruke ``||variables:Kjør||`` til å styre om bitboten skal kjøre eller ikke ved å variere mellom -1 og 1. -1 kommer til å bety at bitboten ikke skal kjøre, mens 1 betyr at bitboten skal kjøre.
 
 
 ```blocks
 radio.setGroup(1)
 Gass=0;
 Sving=0;
-Kjør= false;
+Kjør= -1;
 ```
 ## Steg 2
 
 I ``||basic:gjenta for alltid||`` skal vi oppdatere variablene våre med målinger fra akselerometeret. Sett ``||variables:Gass||`` og ``||variables:Sving||`` til å være ``||input:helningsvinkelen||``. Vi ønsker at ``||variables:Gass||`` skal settes til helningsvinkelen forover-bakover og ``||variables:Sving||`` til helningsvinkelen høyre-venstre.
-Legg også inn blokker for å sende alle tre variablene med ``||radio:radio send verdi||``.
+Legg også inn blokker for å sende alle tre variablene med ``||radio:radio send verdi||``. 
 ```blocks
 basic.forever(function () {
 Gass = input.rotation(Rotation.Pitch)
@@ -31,6 +32,18 @@ radio.sendValue("Kjør", Kjør)
 })
 
 ```
+
+## Steg 3
+Vi skal bruke knapp A til å styre om vår Bitbot skal kjøre eller ikke kjøre. Hvis vi setter vår variabel ``||variables:Kjør||`` til å være -1 skal Bitboten stoppe. Hvis vi setter den til 1
+Koden vår må da kunne sette variabelen til 1 hvis verdien var -1 og sette den til -1 hvis verdien var 1. Prøv deg frem for å finne en løsning på dette, eller se hintet for å se et forslag.
+
+```blocks
+input.onButtonPressed(Button.A, function(){
+Kjør = -1*Kjør
+})
+```
+
+
 
 
 <!---
