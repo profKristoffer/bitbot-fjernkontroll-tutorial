@@ -21,6 +21,52 @@ Nå skal vi begynne å motta verdiene som vår fjernkontroll sender over radioen
 
 Finn en ``||radio:når radio mottar name value||``-blokk og dra den inn i arbeidsområdet. Inne i denne blokken legger du en ``||logic:Hvis||``-blokk.  
 
+Vi trenger tre ulike hvis-setninger for å sjekke hvilke av våre tre variabler vi har mottatt. I hver av hvis-setningene må vi bruke en sammenligningsblokk for å sjekke om ``||radio:name||`` er lik ett av navnene til våre variabler.  
+
+Dra ``||radio:name||`` fra ``||radio:når radio mottar name value||``-blokk og sette den inn i de ulike sammenligningsblokkene og sjekk om det er lik navnet til en av variablene våre.
+
+```blocks
+    radio.onReceivedValue(function (name, value){ 
+        if(name=="Gass"){
+        }
+        else if(name=="Sving"){
+        }
+        else if(name=="Kjør"){
+        }
+        
+    }
+```
+## Steg 3
+Inne i de ulike hvis blokkene skal vi oppdatere variablene våre. Før vi oppdaterer variablene ``||variables:Gass||`` og ``||variables:Sving||`` må vi gjøre noen omregninger med hjelp av ``||Math:regn om||``-blokka. 
+
+Fra fjernkontrollern er ``||variables:Gass||`` -45 når den helles 45 grader fremover og +45 når den helles 45 grader bakover. Dette skal vi regne om slik at den blir 100 når den helles 45 grader frem og -100 når den tippes bakover.  
+
+Lag denne blokka og sett den i den første hvis-setningen  
+
+ ``[Gass = Math.map(-1*value, -45, 45, -100, 100)]``  
+
+På lignende måte varierer ``||variables:Sving||`` fra 45 til -45 og må regnes om til å gå -100 til +100.
+
+Lag denne blokka og sett den i den andre hvis-setningen
+
+ ``[Sving = Math.map(value, -45, 45, -100, 100)]``  
+
+I den siste hvis-setningen trenger vi bare å sette ``||variables:kjør||`` til ``||variables:value||``
+
+```blocks
+        radio.onReceivedValue(function (name, value){ 
+        if(name=="Gass"){
+            Gass = Math.map(-1*value, -45, 45, -100, 100)
+        }
+        else if(name=="Sving"){
+        Sving = Math.map(value, -45, 45, -100, 100)
+        }
+        else if(name=="Kjør"){
+        Kjør=value
+        }
+        
+    }
+```
 
 
 
