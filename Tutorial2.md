@@ -1,4 +1,4 @@
-# BitBot mottaker med akselerometer
+## BitBot mottaker med akselerometer
 
 Vi skal nå lage koden for en BitBot slik at den kan bli fjernstyrat av en fjernkontroll basert på akselerometeret. Du finner link til tutorial for både mottaker og fjernkontroll her: https://profkristoffer.github.io/bitbot-fjernkontroll-tutorial/  
 
