@@ -3,8 +3,10 @@
 
 ## Tutorial
 
-* [Tutorial](/bitbot-fjernkontroll-tutorial/Tutorial)
-* [Start](https://makecode.microbit.org/#tutorial:github:profkristoffer/bitbot-fjernkontroll-tutorial/Tutorial)
+* [Tutorial: Fjernkontroll](/bitbot-fjernkontroll-tutorial/Tutorial)
+* [Tutorial: Fjernkontroll](/bitbot-fjernkontroll-tutorial/Tutorial2)
+* [Start tutorial: Fjernkontroll](https://makecode.microbit.org/#tutorial:github:profkristoffer/bitbot-fjernkontroll-tutorial/Tutorial)
+* [Start tutorial: Mottaker](https://makecode.microbit.org/#tutorial:github:profkristoffer/bitbot-fjernkontroll-tutorial/Tutorial2)
 
 ## Rediger dette prosjektet ![Bygg statusmerke](https://github.com/profkristoffer/bitbot-fjernkontroll-tutorial/workflows/MakeCode/badge.svg)
 

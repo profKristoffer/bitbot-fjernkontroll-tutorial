@@ -20,7 +20,9 @@ Kjør= -1;
 ## Steg 2
 
 I ``||basic:gjenta for alltid||`` skal vi oppdatere variablene våre med målinger fra akselerometeret. Sett ``||variables:Gass||`` og ``||variables:Sving||`` til å være ``||input:helningsvinkelen||``. Vi ønsker at ``||variables:Gass||`` skal settes til helningsvinkelen forover-bakover og ``||variables:Sving||`` til helningsvinkelen høyre-venstre.  
-Legg også inn blokker for å sende **alle tre** variablene med ``||radio:radio send verdi||``. 
+Legg også inn blokker for å sende **alle tre** variablene med ``||radio:radio send verdi||``.  
+
+**Merk!** Variabelen ``||input:helningsvinkelen||`` går fra -180 grader til 180 grader og viser retningen en micro:bit holdes. Målingene på ``||input:helningsvinkelen||`` forover-bakover vil være negative når vi heller en micro:bit fremover og positive når vi heller den bakover. Dette er det motsatte av hva vi egentlig ønsker! Dette skal vi rette på i koden til mottakeren.
 ```blocks
 basic.forever(function () {
 Gass = input.rotation(Rotation.Pitch)
@@ -46,6 +48,7 @@ Kjør = -1*Kjør
 ## En lysende indikator @showhint
 Vi ønsker også å lage en LED-indikator som viser hvordan vi styrer. Dette kan vi gjøre ved å bruke ``[led.plot(0,0)]``-blokken.  
 Med denne blokken kan vi angi hvilken av de 25 LED som skal tennes på skjermen, hvor vi bruker ``||LED:x||`` til å si hvor lyset skal være fra venstre til høyre og ``||LED:y||`` til å si hvor lyset skal være fra topp til bunn. ``||LED:x||`` og ``||LED:y||`` kan ha 0 til 4 som verdi.
+
 Her ser vi et eksempel på hvordan vi først kan få den midterste LEDen til å lyse også den øverst til venstre.
 
 ```blocks
@@ -55,6 +58,7 @@ led.plot(0,0)
 
 ## Regn om @showhint
 Siden ``||led: tenn x = 0, y = 0||`` kun kan ta imot tall mellom 0 og 4 må vi regne om våre verdier fra akselerometeret. Blant ``||Math: Matematikk||``-blokkene har vi en ``||math: regn om||``-blokk som kan gjøre akkurat dette! For å bruke den må vi først si hvilken variabel vi skal regne om. Deretter hva som er variabelens minste og største verdi og hva som skal være den minste og høyeste verdien som vi ønsker å få tilbake.   
+
 Her ser vi et eksempel på hvordan denne blokken kan brukes. Variebelen ``||variables: prosent||``, som er et tall mellom 0 og 100, og regnes her om til et tall mellom 0 og 4.
  
 ```blocks
@@ -64,6 +68,7 @@ basic.showNumber(Math.map(prosent, 0,100, 0,4))
 
 ## Steg 4
 La oss sette det sammen! Bruk ``||LED: tenn||``- og ``||math: regn om||``-blokkene til å få vår indikator til å lyse. Bruk variabelen ``||variables:Sving||`` til ``||LED:x||`` verdi og ``||variables:Gass||`` til ``||LED:y||`` verdi. Legg inn at disse variablene kan variere mellom -45 og 45. De skal regnes om til verdier mellom 0 og 4.  
+
 Vi må også legge inn en ``||basic:tøm skjerm||``-blokk for å viske bort vår gamle indikator. Legg ``||basic:tøm skjerm||`` rett **over** ``||LED: tenn||``-blokka. Hvis du gjør det omvendt vil vi ikke se lyset siden LEDen blir skrudd av før vi oppfatter det.
 ```blocks
 basic.forever(function () {
