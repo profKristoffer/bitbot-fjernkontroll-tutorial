@@ -48,7 +48,7 @@ Kjør = -1*Kjør
 ```
 
 ## En lysende indikator @showhint
-Vi ønsker også å lage en LED-indikator som viser hvordan vi styrer. Dette kan vi gjøre ved å bruke ``[led.plot(0,0)]``-blokken.  
+Vi ønsker også å lage en LED-indikator som viser hvordan vi styrer. Dette kan vi gjøre ved å bruke ``||led: tenn x = 0, y = 0||``-blokken.  
 Med denne blokken kan vi angi hvilken av de 25 LED som skal tennes på skjermen, hvor vi bruker ``||LED:x||`` til å si hvor lyset skal være fra venstre til høyre og ``||LED:y||`` til å si hvor lyset skal være fra topp til bunn. ``||LED:x||`` og ``||LED:y||`` kan ha 0 til 4 som verdi.
 
 Her ser vi et eksempel på hvordan vi først kan få den midterste LEDen til å lyse også den øverst til venstre.
