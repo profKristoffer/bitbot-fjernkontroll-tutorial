@@ -69,20 +69,15 @@ I den siste hvis-setningen trenger vi bare å sette ``||variables:kjør||`` til 
 ```
 
 ## Steg 4
-I ``||Basic:gjenta for alltid||``skal vi ha en ``||hvis||``-blokk for å styre hvor raskt bilen skal kjøre frem eller bakover.  
+I ``||Basic:gjenta for alltid||`` skal vi ha en ``||logic:hvis||``-blokk for å styre hvor raskt bilen skal kjøre frem eller bakover.  
 
-Legg inn en ``||hvis||``-blokk som sjekker om variabelen ``||variables:Kjør||`` er 1. Inne i blokken trenger vi enda en ``||hvis||``-blokk som sjekker om variabelen ``||variables:Frem||`` er større enn null. Hvis den er større enn null skal vi bruke kommandoen ``[bitbot.go(BBDirection.Forward, 60)]``. Legg inn ``||variables:Frem||`` som farten.  
+Legg inn en ``||logic:hvis||``-blokk som sjekker om variabelen ``||variables:Kjør||`` er 1. Hvis den har noen annen verdi skal bilen stoppe, bruk ``[bitbot.stop(BBStopMode.Coast)]``. 
 
-
-
+Inne i ``||logic:hvis||``-blokken som kontrollerer at ``||variables:Kjør||`` er 1, så trenger vi enda en ``||logic:hvis||``-blokk som sjekker om variabelen ``||variables:Frem||`` er større enn null. Hvis den er større enn null skal vi bruke kommandoen ``[bitbot.go(BBDirection.Forward, 60)]``. Legg inn ``||variables:Frem||`` som farten.
+Ellers skal bilen kjøre i revers, hvor vi bruker absoluttverdien av variabelen ``||variables:Frem||``. Da vil du trenge blokken ``||Math:absoluttverdien av  ||``.
 
 ```blocks
 basic.forever(function () {
-    if (Høyre >= 0) {
-        bitbot.BBBias(BBRobotDirection.Right, Høyre)
-    } else {
-        bitbot.BBBias(BBRobotDirection.Left, Math.abs(Høyre))
-    }
     if (Kjør == 1) {
         if (Frem >= 0) {
             bitbot.go(BBDirection.Forward, Frem)
@@ -95,7 +90,31 @@ basic.forever(function () {
 })
 ```
 
+## Steg 5
+Det siste vi trenger å gjøre er å få bilen til å svinge! Da skal vi bruke en blokken ``[bitbot.BBBias(BBRobotDirection.Right, 0)]``. 
 
+I ``||Basic:gjenta for alltid||`` må vi legge til en ``||logic:hvis||``-blokk som ligger nedenfor de andre ``||logic:hvis||``-blokkene vi har lagt inn der. I denne blokken skal vi sjekke om variabelen ``||variables:Høyre||`` er større enn null. 
+Hvis den er større enn null må vi justere bilen mot høyre med verdien til variabelen ``||variables:Høyre||``, mens hvis den er mindre enn null må vi justere den til venstre med absoluttverdien av ``||variables:Høyre||``.
+
+```blocks
+basic.forever(function () {
+    if (Kjør == 1) {
+        if (Frem >= 0) {
+            bitbot.go(BBDirection.Forward, Frem)
+        } else {
+            bitbot.go(BBDirection.Reverse, Math.abs(Frem))
+        }
+    } else {
+        bitbot.stop(BBStopMode.Coast)
+    }
+    // @highlight
+    if (Høyre >= 0) {
+        bitbot.BBBias(BBRobotDirection.Right, Høyre)
+    } else {
+        bitbot.BBBias(BBRobotDirection.Left, Math.abs(Høyre))
+    }
+})
+```
 
 <!---
 ```blocks
