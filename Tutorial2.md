@@ -71,7 +71,7 @@ I den siste hvis-setningen trenger vi bare å sette ``||variables:kjør||`` til 
 ## Steg 4
 I ``||Basic:gjenta for alltid||``skal vi ha en ``||hvis||``-blokk for å styre hvor raskt bilen skal kjøre frem eller bakover.  
 
-Legg inn en ``||hvis||``-blokk som sjekker om variabelen ``||variables:Kjør||`` er 1. Inne i blokken trenger vi enda en ``||hvis||``-blokk som sjekker om variabelen ``||variables:Frem||`` er større enn null. Hvis den er større enn null skal vi bruke kommandoen ``||bitbot:kjør fremover med fart ||``. Legg inn ``||variables:Frem||`` som farten.  
+Legg inn en ``||hvis||``-blokk som sjekker om variabelen ``||variables:Kjør||`` er 1. Inne i blokken trenger vi enda en ``||hvis||``-blokk som sjekker om variabelen ``||variables:Frem||`` er større enn null. Hvis den er større enn null skal vi bruke kommandoen ``[bitbot.go(BBDirection.Forward, 60)]``. Legg inn ``||variables:Frem||`` som farten.  
 
 
 
